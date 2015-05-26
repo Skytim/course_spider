@@ -17,11 +17,12 @@ for x in range(5):
             soup = BeautifulSoup(page)
             teacherName = soup.br.previous_element.get_text()
             w = unicodecsv.writer(data)
-            row = []
-            for article in soup.find_all('a'):
-                row.append(([teacherName[10:], article.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element,article.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element, article.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element, article.previous_element.previous_element]))
 
+            for article in soup.find_all('a'):
+                row = []
+                row.append(([teacherName[10:], article.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element,article.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element, article.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element, article.previous_element.previous_element]))
                 w.writerows(row)
+
 
         except urllib2.HTTPError, err:
              print("無法抓到教師編號3060"+str(x)+str(y))
