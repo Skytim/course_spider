@@ -22,7 +22,11 @@ for x in range(5):
                 row = []
                 row.append(([teacherName[10:], article.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element,article.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element, article.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element, article.previous_element.previous_element]))
                 w.writerows(row)
+            for article in soup.find_all(colspan="2"):
 
+                row = []
+                row.append(([teacherName[10:], article.previous_element.previous_element.previous_element,article.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element, article.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element.previous_element, 70]))
+                w.writerows(row)
 
         except urllib2.HTTPError, err:
              print("無法抓到教師編號3060"+str(x)+str(y))
